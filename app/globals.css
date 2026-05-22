@@ -5,22 +5,475 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html{
+  scroll-behavior:smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body{
+  overflow-x: hidden;
+  background:#f7f7f7;
+  color:#111;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.scrollbar-hide::-webkit-scrollbar{
+  display:none;
+}
+
+.scrollbar-hide::-webkit-scrollbar{
+  display:none;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  section {
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-size: 38px !important;
+    line-height: 46px !important;
+    letter-spacing: -1px !important;
+  }
+
+  h2 {
+    font-size: 30px !important;
+    line-height: 38px !important;
+  }
+
+  p {
+    font-size: 14px !important;
+    line-height: 24px !important;
+  }
+
+  .grid {
+    gap: 28px !important;
+  }
+
+  footer {
+    padding-top: 85px !important;
+  }
+
+  footer > div:last-child {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* =========================================
+   SMALL MOBILE DEVICES
+   iPhone 5 / SE / 350px / 360px
+========================================= */
+
+@media (max-width: 360px) {
+
+  /* GLOBAL */
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* HEADINGS */
+
+  h1 {
+    font-size: 26px !important;
+    line-height: 34px !important;
+    letter-spacing: -1px !important;
+  }
+
+  h2 {
+    font-size: 22px !important;
+    line-height: 30px !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  h3 {
+    font-size: 15px !important;
+    line-height: 24px !important;
+  }
+
+  /* TEXT */
+
+  p {
+    font-size: 12px !important;
+    line-height: 22px !important;
+  }
+
+  span {
+    font-size: inherit !important;
+  }
+
+  /* BUTTONS */
+
+  button,
+  a {
+    font-size: 12px !important;
+  }
+
+  button {
+    padding: 10px 18px !important;
+  }
+
+  /* NAVBAR */
+
+  nav {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  nav h1,
+  nav .logo {
+    font-size: 16px !important;
+  }
+
+  nav button {
+    padding: 8px 14px !important;
+    border-radius: 999px !important;
+  }
+
+  /* HERO SECTION */
+
+  .hero,
+  .hero-section {
+    min-height: auto !important;
+    padding-top: 110px !important;
+    padding-bottom: 60px !important;
+  }
+
+  .hero-content {
+    width: 100% !important;
+  }
+
+  .hero-content p {
+    margin-top: 16px !important;
+    max-width: 100% !important;
+  }
+
+  .hero-buttons {
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .hero-buttons button,
+  .hero-buttons a {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .hero-image {
+    margin-top: 40px !important;
+  }
+
+  /* GRID SYSTEM */
+
+  .grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* CARDS */
+
+  .card {
+    padding: 18px !important;
+    border-radius: 18px !important;
+  }
+
+  /* ABOUT */
+
+  .about-content {
+    text-align: center !important;
+  }
+
+  /* SERVICES */
+
+  .services-card {
+    padding: 22px !important;
+  }
+
+  /* PROJECTS */
+
+  .project-card img {
+    height: auto !important;
+  }
+
+  /* BLOG */
+
+  .blog-card {
+    padding: 18px !important;
+  }
+
+  .blog-card h3 {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  /* FOOTER */
+
+  footer {
+    padding-top: 50px !important;
+    padding-bottom: 24px !important;
+  }
+
+  footer .grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  footer h2 {
+    font-size: 22px !important;
+  }
+
+  footer h3 {
+    font-size: 16px !important;
+  }
+
+  footer p,
+  footer a {
+    font-size: 12px !important;
+  }
+
+}
+
+
+/* =========================================
+   EXTRA SMALL DEVICES
+   350px and below
+========================================= */
+
+@media (max-width: 350px) {
+
+  h1 {
+    font-size: 24px !important;
+    line-height: 32px !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+    line-height: 28px !important;
+  }
+
+  p {
+    font-size: 11px !important;
+    line-height: 20px !important;
+  }
+
+  button,
+  a {
+    font-size: 11px !important;
+  }
+
+  section {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .hero,
+  .hero-section {
+    padding-top: 100px !important;
+  }
+
+  .card,
+  .services-card,
+  .blog-card {
+    padding: 16px !important;
+  }
+
+}
+
+/* =========================================
+   ULTRA SMALL MOBILE DEVICES
+   320px Responsive
+   iPhone 5 / Old Android
+========================================= */
+
+@media (max-width: 320px) {
+
+  /* GLOBAL */
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* HEADINGS */
+
+  h1 {
+    font-size: 22px !important;
+    line-height: 30px !important;
+    letter-spacing: -1px !important;
+  }
+
+  h2 {
+    font-size: 18px !important;
+    line-height: 26px !important;
+  }
+
+  h3 {
+    font-size: 14px !important;
+    line-height: 22px !important;
+  }
+
+  /* TEXT */
+
+  p {
+    font-size: 11px !important;
+    line-height: 20px !important;
+  }
+
+  span {
+    font-size: inherit !important;
+  }
+
+  /* BUTTONS */
+
+  button,
+  a {
+    font-size: 11px !important;
+  }
+
+  button {
+    padding: 8px 14px !important;
+    border-radius: 999px !important;
+  }
+
+  /* NAVBAR */
+
+  nav {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    height: 64px !important;
+  }
+
+  nav h1,
+  nav .logo {
+    font-size: 14px !important;
+  }
+
+  nav button {
+    padding: 7px 12px !important;
+  }
+
+  /* HERO SECTION */
+
+  .hero,
+  .hero-section {
+    min-height: auto !important;
+    padding-top: 90px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .hero-content {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .hero-content p {
+    margin-top: 14px !important;
+    max-width: 100% !important;
+  }
+
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+  }
+
+  .hero-buttons button,
+  .hero-buttons a {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .hero-image {
+    margin-top: 32px !important;
+  }
+
+  /* GRID */
+
+  .grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* CARDS */
+
+  .card,
+  .services-card,
+  .blog-card,
+  .project-card {
+    padding: 14px !important;
+    border-radius: 16px !important;
+  }
+
+  /* ABOUT */
+
+  .about-content {
+    text-align: center !important;
+  }
+
+  /* SERVICES */
+
+  .services-card h3 {
+    font-size: 15px !important;
+  }
+
+  /* BLOG */
+
+  .blog-card h3 {
+    font-size: 15px !important;
+    line-height: 22px !important;
+  }
+
+  /* FOOTER */
+
+  footer {
+    padding-top: 40px !important;
+    padding-bottom: 20px !important;
+  }
+
+  footer .grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  footer h2 {
+    font-size: 18px !important;
+  }
+
+  footer h3 {
+    font-size: 14px !important;
+  }
+
+  footer p,
+  footer a {
+    font-size: 11px !important;
+    line-height: 20px !important;
+  }
+
 }
