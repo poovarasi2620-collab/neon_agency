@@ -1,26 +1,73 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Work() {
   const works = [
     {
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=1200&auto=format&fit=crop",
+      slug: "ui-wireframe-design",
+      image:
+        "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=1200&auto=format&fit=crop",
       title: "UI Wireframe Design",
       category: "UI/UX DESIGN",
       desc: "Creative wireframe planning for modern digital products.",
     },
     {
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop",
+      slug: "web-development",
+      image:
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop",
       title: "Web Development",
       category: "DEVELOPMENT",
       desc: "Modern scalable frontend development.",
     },
     {
-      image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200&auto=format&fit=crop",
+      slug: "game-ui-design",
+      image:
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200&auto=format&fit=crop",
       title: "Game UI Design",
       category: "CREATIVE DESIGN",
       desc: "Immersive interface and visual systems.",
+    },
+    {
+      slug: "mobile-app-design",
+      image:
+        "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1200&auto=format&fit=crop",
+      title: "Mobile App Design",
+      category: "APP DESIGN",
+      desc: "Clean and modern mobile application experience.",
+    },
+    {
+      slug: "branding-design",
+      image:
+        "https://images.unsplash.com/photo-1559028006-448665bd7c7f?q=80&w=1200&auto=format&fit=crop",
+      title: "Branding Design",
+      category: "BRANDING",
+      desc: "Powerful visual identity for modern businesses.",
+    },
+    {
+      slug: "dashboard-design",
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+      title: "Dashboard Design",
+      category: "WEB APP",
+      desc: "Smart analytics dashboard with premium interface.",
+    },
+    {
+      slug: "ecommerce-website",
+      image:
+        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
+      title: "E-commerce Website",
+      category: "ONLINE STORE",
+      desc: "Responsive shopping website with smooth user flow.",
+    },
+    {
+      slug: "digital-marketing",
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+      title: "Digital Marketing",
+      category: "MARKETING",
+      desc: "Creative campaigns that improve online growth.",
     },
   ];
 
@@ -65,7 +112,11 @@ export default function Work() {
               transition={{ duration: 0.4 }}
               className="group relative flex-shrink-0 w-[245px] h-[315px] md:w-[300px] md:h-[380px] rounded-[20px] md:rounded-[22px] overflow-hidden bg-gray-200 cursor-pointer"
             >
-              <img src={item.image} alt="" className="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              />
 
               <div className="absolute inset-0 bg-black/20 md:bg-black/0 md:group-hover:bg-black/60 transition duration-500" />
 
@@ -82,9 +133,12 @@ export default function Work() {
                   {item.desc}
                 </p>
 
-                <button className="mt-4 md:mt-5 bg-white text-black px-4 md:px-5 py-2 md:py-3 rounded-full text-xs md:text-sm font-semibold md:opacity-0 md:group-hover:opacity-100 transition duration-500">
+                <Link
+                  href={`/projects/${item.slug}`}
+                  className="inline-block mt-4 md:mt-5 bg-white text-black px-4 md:px-5 py-2 md:py-3 rounded-full text-xs md:text-sm font-semibold md:opacity-0 md:group-hover:opacity-100 transition duration-500"
+                >
                   View Project
-                </button>
+                </Link>
               </div>
             </motion.div>
           ))}
