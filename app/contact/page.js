@@ -10,17 +10,11 @@ export default function ContactPage() {
     <main className="bg-white overflow-x-hidden">
       <Navbar />
 
-      <section className="min-h-[calc(100vh-72px)] flex items-center">
-        <ContactHero />
-      </section>
+      <ContactHero />
 
-      <section className="min-h-screen flex items-center">
-        <ContactForm />
-      </section>
+      <ContactForm />
 
-      <section className="min-h-[55vh] flex items-center">
-        <Footer />
-      </section>
+      <Footer />
     </main>
   );
 }
