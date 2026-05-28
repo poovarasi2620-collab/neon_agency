@@ -1,24 +1,55 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { FiMonitor, FiPenTool, FiBarChart2, FiExternalLink } from "react-icons/fi";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FiMonitor,
+  FiPenTool,
+  FiBarChart2,
+  FiExternalLink,
+  FiX,
+  FiCheckCircle,
+} from "react-icons/fi";
 
 export default function Services() {
+  const [selectedService, setSelectedService] = useState(null);
+
   const services = [
     {
       icon: <FiMonitor />,
       title: "Software Development",
       desc: "Robust architectures and scalable code built for high-performance enterprise systems and disruptive startups.",
+      details: [
+        "Custom website and web application development",
+        "Frontend and backend development",
+        "Responsive and mobile-friendly design",
+        "API integration and database setup",
+        "Secure, scalable, and high-performance code",
+      ],
     },
     {
       icon: <FiPenTool />,
       title: "Graphic Designer",
       desc: "Bespoke visual identities that bridge technical precision and human emotion.",
+      details: [
+        "Logo design and brand identity",
+        "Social media poster design",
+        "Business card and brochure design",
+        "UI visual design for websites",
+        "Creative designs based on brand style",
+      ],
     },
     {
       icon: <FiBarChart2 />,
       title: "Digital Marketing",
       desc: "Data-driven growth strategies that leverage optimization and creative storytelling.",
+      details: [
+        "Social media marketing strategy",
+        "SEO optimization for websites",
+        "Content planning and campaign ideas",
+        "Brand reach and engagement improvement",
+        "Performance tracking and growth analysis",
+      ],
     },
   ];
 
@@ -55,7 +86,10 @@ export default function Services() {
                 {item.desc}
               </p>
 
-              <button className="flex items-center gap-3 md:gap-4 text-[#0646d8] text-[12px] md:text-[14px] font-bold uppercase">
+              <button
+                onClick={() => setSelectedService(item)}
+                className="flex items-center gap-3 md:gap-4 text-[#0646d8] text-[12px] md:text-[14px] font-bold uppercase"
+              >
                 Learn More
                 <FiExternalLink className="text-[18px] md:text-[21px]" />
               </button>
@@ -63,6 +97,62 @@ export default function Services() {
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selectedService && (
+          <motion.div
+            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center px-5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="relative bg-white rounded-[24px] max-w-[560px] w-full p-6 md:p-8 shadow-2xl"
+              initial={{ scale: 0.85, opacity: 0, y: 30 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.85, opacity: 0, y: 30 }}
+              transition={{ duration: 0.3 }}
+            >
+              <button
+                onClick={() => setSelectedService(null)}
+                className="absolute top-5 right-5 text-[#111827] text-[24px]"
+              >
+                <FiX />
+              </button>
+
+              <div className="w-[55px] h-[55px] rounded-[14px] bg-[#0646d8] text-white flex items-center justify-center text-[24px] mb-5">
+                {selectedService.icon}
+              </div>
+
+              <h3 className="text-[#111827] text-[26px] md:text-[32px] font-extrabold mb-4">
+                {selectedService.title}
+              </h3>
+
+              <p className="text-[#4b5563] text-[15px] md:text-[16px] leading-[28px] mb-6">
+                {selectedService.desc}
+              </p>
+
+              <div className="space-y-4">
+                {selectedService.details.map((detail, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <FiCheckCircle className="text-[#0646d8] text-[20px] mt-1 shrink-0" />
+                    <p className="text-[#111827] text-[14px] md:text-[16px] leading-[26px] font-medium">
+                      {detail}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                onClick={() => setSelectedService(null)}
+                className="mt-7 w-full bg-[#0646d8] text-white py-3 rounded-[14px] font-bold"
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
